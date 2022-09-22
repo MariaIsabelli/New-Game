@@ -1,0 +1,187 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #002a3f;
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .controls {
+    position: fixed;
+    z-index: 10;
+    font-size: 0;
+    top: 10px;
+    right: 10px;
+  }
+  .controls button,
+  .controls div {
+    display: inline-block;
+    height: 33px;
+    background-color: #fff;
+    border: none;
+    padding: 4px 8px;
+    margin: 0 1px;
+    box-sizing: border-box;
+    vertical-align: top;
+    line-height: 26px;
+    font-size: 1rem;
+  }
+  .controls div {
+    min-width: 50px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .controls button {
+    font-size: 1.3rem;
+    padding-top: 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .controls button:first-child {
+    border-radius: 6px 0 0 6px;
+  }
+  .controls button:last-child {
+    border-radius: 0 6px 6px 0;
+  }
+  .controls button:focus {
+    outline: none;
+  }
+  .controls button.clicked {
+    transition: none;
+    background-color: #52D1C5;
+  }
+  
+  svg {
+    max-width: 100vw;
+    max-height: 100vh;
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    overflow: visible;
+  }
+  svg #Mask1 polygon {
+    animation: comet 8s infinite ease-out;
+  }
+  svg #Mask2 polygon {
+    animation: comet 11s infinite -2s ease-out;
+  }
+  svg #Mask3 polygon {
+    animation: comet 9s infinite -4s ease-out;
+  }
+  svg #craters > g {
+    animation: earthrotation 80s infinite linear;
+    transform-origin: 8% 12%;
+  }
+  svg #venuscraters > g {
+    animation: earthrotation 35s infinite linear reverse;
+    transform-origin: 80% 32%;
+  }
+  svg #sputnik {
+    animation: earthrotation 360s infinite linear reverse;
+    transform-origin: 96% 97%;
+  }
+  svg #rocket {
+    animation: bounce 60s infinite -30s ease-in-out alternate;
+  }
+  svg #rocket > g {
+    animation: earthrotation 120s infinite linear;
+    transform-origin: 82% 75%;
+  }
+  svg #gallaxy > * {
+    stroke-dasharray: 1 4;
+    animation: galactic 2s infinite linear;
+  }
+  svg #gallaxy > *:nth-child(4), svg #gallaxy > *:nth-child(5) {
+    animation: galactic 1s infinite linear reverse;
+  }
+  svg #lands > path {
+    animation: earthrotation 90s infinite linear;
+    transform-origin: 102% 65%;
+  }
+  svg #sun {
+    animation: sundance 2s infinite ease alternate;
+    transform-origin: 14.5% 80%;
+  }
+  svg #sun #rays polygon:not(#main) {
+    position: relative;
+    animation-name: shining;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform-origin: 14.5% 80%;
+  }
+  svg #sun #rays #ray_1_ {
+    animation-delay: -1s;
+  }
+  svg #sun #rays #ray_2_ {
+    animation-delay: -2s;
+  }
+  svg #sun #rays #ray_3_ {
+    animation-delay: -3s;
+  }
+  svg #sun #rays #ray_4_ {
+    animation-delay: -4s;
+  }
+  
+  @keyframes bounce {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(0, -200px, 0);
+    }
+  }
+  @keyframes comet {
+    0% {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+    10% {
+      opacity: 0;
+      transform: translate3d(-120px, 95px, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(-600px, 475px, 0);
+    }
+  }
+  @keyframes galactic {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: 5;
+    }
+  }
+  @keyframes earthrotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes sundance {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(6deg);
+    }
+  }
+  @keyframes shining {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.1);
+    }
+    75% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
